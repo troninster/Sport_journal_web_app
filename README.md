@@ -110,7 +110,13 @@ VITE_GOOGLE_CLIENT_ID=your_client_id
 ```
 
 Do not commit `.env`, OAuth tokens, or browser/session state.
-Without this variable, only the local JSON Export/Import sync is available.
+Without a client ID, only the local JSON Export/Import sync is available.
+
+If you use encrypted local agent secrets, generate it safely via:
+
+```bash
+scripts/agent-env > .env
+```
 
 ## Future Improvements (v1.1+)
 

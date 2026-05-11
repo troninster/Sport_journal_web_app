@@ -184,6 +184,12 @@ Create a `.env` file at the project root for Google Drive integration:
 VITE_GOOGLE_CLIENT_ID=your_google_oauth_client_id
 ```
 
+If you use encrypted local agent secrets, generate it safely via:
+
+```bash
+scripts/agent-env > .env
+```
+
 ---
 
 ## Planned Improvements (v1.1+)
