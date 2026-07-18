@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import type { Exercise } from '../../types';
+import { estimateOneRepMax } from '../../utils/oneRepMax';
 import { Card } from '../common/Card';
 import { Button } from '../common/Button';
 import { EditExerciseModal } from './EditExerciseModal';
@@ -71,10 +72,7 @@ export const ExerciseDetails: React.FC<{ exercise: Exercise, onBack: () => void 
         }).sort((a, b) => a.date - b.date);
     }, [exercise.uuid]);
 
-    // Calculate Epley 1RM
-    const epley = (w: number, r: number) => w * (1 + r / 30);
-
-    const oneRMData = history?.map(s => epley(s.weight, s.reps)) || [];
+    const oneRMData = history?.map(s => estimateOneRepMax(s.weight, s.reps)) || [];
     // Smoothed or per-workout max? Charting every set is noisy.
 
     // Group by workout (date) and take max 1RM
