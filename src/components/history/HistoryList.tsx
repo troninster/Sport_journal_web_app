@@ -106,7 +106,11 @@ export const HistoryList: React.FC = () => {
         >
             <h1 className="text-xl font-bold mb-2">History</h1>
             {workouts.length === 0 && (
-                <div className="text-center text-text-secondary">
+                <div
+                    role="status"
+                    aria-live="polite"
+                    className="text-center text-text-secondary"
+                >
                     No completed workouts yet.
                 </div>
             )}
