@@ -102,9 +102,11 @@ export const HistoryList: React.FC = () => {
         <div 
             ref={scrollContainerRef}
             onScroll={handleScroll}
+            role="region"
+            aria-labelledby="history-heading"
             className="flex flex-col gap-3 p-4 pb-20 overflow-y-auto h-full"
         >
-            <h1 className="text-xl font-bold mb-2">History</h1>
+            <h1 id="history-heading" className="text-xl font-bold mb-2">History</h1>
             {workouts.length === 0 && (
                 <div className="text-center text-text-secondary">
                     No completed workouts yet.
